@@ -5,14 +5,13 @@ public class adventure {
 	public static void main(String[] args) {
 
 		int task01 = JOptionPane.showOptionDialog(null,
-				"You are part of the army for the kingdom of Arda. \n One fine summer day you are requested to go on a scouting mission. \n You could choose between patrolling the northern or southern border.",
+				"You are part of the army for the kingdom of Arda. \n One fine summer day you are requested to go on a scouting mission.",
 				"Stage 1", 0, JOptionPane.INFORMATION_MESSAGE, null, new String[] { "Go on the southern patrol",
-						"Go on the northern parol", "Fake a minor illness to \n get out of scouting duty" },
+						"Fake a minor illness to \n get out of scouting duty" },
 				null);
 		if (task01 == 0) {
 			southOne();
-		} else if (task01 == 1) {
-			northOne();
+		
 		} else {
 			stayOne();
 		}
@@ -48,13 +47,13 @@ public class adventure {
 	public static void stayOne() {
 
 		int alert = JOptionPane.showOptionDialog(null,
-				"You fake a cold and get to stay at the castle \n a few weeks later both scouting parties return, warning of imminent invasion",
+				"You fake a cold and get to stay at the castle \n a few weeks later the scouting party returns, warning of imminent invasion",
 				"Stage 1", 0, JOptionPane.INFORMATION_MESSAGE, null,
 				new String[] { "secrectly flee to the countryside", "prepare for the siege" }, null);
 		if (alert == 0) {
-
+			countryside();
 		} else {
-
+			siege();
 		}
 	}
 
@@ -80,25 +79,41 @@ public class adventure {
 				"Stage 1", 0, JOptionPane.INFORMATION_MESSAGE, null,
 				new String[] { "secretly flee", "get ready for battle" }, null);
 		if (outpost == 0) {
-countryside();
+			countryside();
 		} else {
 			JOptionPane.showMessageDialog(null,
 					"Your small force is no match \nfor the goblin hordes, but you thin the legions,\n and die a hero.\n THE END");
 			System.exit(0);
 		}
 	}
-public static void countryside() {
-	int country = JOptionPane.showOptionDialog(null,
-			"You flee to the countryside, \nto wait out the fighting. \nAfter a few months pass, Arda is victorious and \nthe monsters are driven back.",
-			"Stage 1", 0, JOptionPane.INFORMATION_MESSAGE, null, new String[] {"return to the castle", "stay" },
-			null);
-if(country==0) {
-	JOptionPane.showMessageDialog(null,"You live happily for a few months, \nbut you are aressted for desertion after being \nrecognized by a member off your squad. Shame on you. \nTHE END");
-System.exit(0);
-}else {
-JOptionPane.showMessageDialog(null,"You aren't thrilled \nabout the hermit life \nbut its better than the army. \nYou live out your days in peace.\nTHE END");
-System.exit(0);
-}
-}
 
+	public static void countryside() {
+		int country = JOptionPane.showOptionDialog(null,
+				"You flee to the countryside, \nto wait out the fighting. \nAfter a few months pass, Arda is victorious and \nthe monsters are driven back.",
+				"Stage 1", 0, JOptionPane.INFORMATION_MESSAGE, null, new String[] { "return to the castle", "stay" },
+				null);
+		if (country == 0) {
+			JOptionPane.showMessageDialog(null,
+					"You live happily for a few months, \nbut you are aressted for desertion after being \nrecognized by a member off your squad. Shame on you. \nTHE END");
+			System.exit(0);
+		} else {
+			JOptionPane.showMessageDialog(null,
+					"You aren't thrilled \nabout the hermit life \nbut its better than the army. \nYou live out your days in peace.\nTHE END");
+			System.exit(0);
+		}
+	}
+
+	public static void siege() {
+		int descision = JOptionPane.showOptionDialog(null,
+				"You prepare for the incoming invasion. Goblins attack the east gate first, \nand it is suffering heavy damage. You are assingred to the \nwest gate, but the east gate is about to fall.",
+				"Stage 2", 0, JOptionPane.INFORMATION_MESSAGE, null, new String[] { "go to the east gate", "stay at your post" },
+				null);
+	if (descision==0) {
+		JOptionPane.showMessageDialog(null, "You help out \nat the east gate, but a \nsuprise attack was launced on the \nwest gate, which fell. The battle is still won, \nbut your choice led to the deaths of many. \nTHE END");
+		System.exit(0);
+	}else {
+		JOptionPane.showMessageDialog(null, "You stay at \nyour post. The east gate holds \nand when goblins launch a suprise \nattack on your post you hold them off. \nThe battle is won. You are a hero. \nTHE END");
+		System.exit(0);
+	}
+	}
 }
